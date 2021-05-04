@@ -1,0 +1,52 @@
+<html>  
+    <head>  
+      <title>File upload in Node.js by Javatpoint</title>  
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>  
+    <script>  
+    function isUrlValid(userInput) {
+        var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+        if(res == null)
+            return false;
+        else
+            return true;
+    }
+    $(document).ready(function() {  
+       $('#uploadForm').submit(function() {  
+           $("#status").empty().text("File is uploading...");  
+    
+          $(this).ajaxSubmit({  
+    
+              error: function(xhr) {  
+                      status('Error: ' + xhr.status);  
+              },  
+    
+              success: function(response) {  
+                      console.log(response);
+                      if(response.success===true)
+                      {
+                          if(isUrlValid(response.output)==true){
+                                window.open(response.output, '_blank');
+                          }
+                          else{
+                            alert(response.output);
+                          }
+                      }  
+                      $("#status").empty().text(response);  
+              }  
+      });  
+    
+      return false;  
+      });      
+  });  
+    </script>  
+    </head>  
+    <body>  
+        <h1>QR CODE SCANNER</h1>  
+        <form id="uploadForm" enctype="multipart/form-data" action="/upload" method="post">  
+         <input type="file" accept="image/*" capture/><br/><br/>  
+         <input type="submit" value="Upload Image" name="submit"><br/><br/>  
+         <span id="status"></span>  
+        </form>  
+    </body>  
+  </html>  
