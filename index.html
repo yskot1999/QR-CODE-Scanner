@@ -1,9 +1,7 @@
-<html>  
+<!--<html>  
     <head>  
       <title>File upload in Node.js by Javatpoint</title>  
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>  
-    <script>  
+   
     function isUrlValid(userInput) {
         var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
         if(res == null)
@@ -44,9 +42,134 @@
     <body>  
         <h1>QR CODE SCANNER</h1>  
         <form id="uploadForm" enctype="multipart/form-data" action="/upload" method="post">  
-         <input type="file" accept="image/*" capture/><br/><br/>  
+         <input type="file" name="myfile" accept="image/*" capture/><br/><br/>  
          <input type="submit" value="Upload Image" name="submit"><br/><br/>  
          <span id="status"></span>  
         </form>  
     </body>  
   </html>  
+-->
+<!DOCTYPE  html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop or Browse: File Upload | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>  
+    <script src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+.mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 93vh;
+    margin-top: 0vh;
+}
+.drag-area{
+  background-color: #ceced6;
+  border: 4px dashed black;
+  height: 40vh;
+  width: 700px;
+  border-radius: 5px;
+  
+}
+.drag-area.active{
+  border: 4px solid black;
+}
+.drag-area .icon{
+  font-size: 100px;
+  color: black;
+}
+.drag-area header{
+  font-size: 30px;
+  font-weight: 500;
+  color: black;
+}
+.drag-area span{
+  font-size: 25px;
+  font-weight: 500;
+  color: black;
+  margin: 10px 0 15px 0;
+}
+.drag-area button{
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.drag-area img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.nav1{
+    background-color: #1f068f;
+    height: 7vh;
+    width: 100%;
+    margin-top: 0vh;
+    display: flex;
+    flex-direction: row;
+}
+.nav2{
+    background-color: #1207e0;
+    height: 7vh;
+    width: 100%;
+    margin-top: 0;
+}
+h2{
+    letter-spacing: normal;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    padding: 2vh;
+    color: honeydew;
+}
+
+#QR{
+    font-size:5vh;
+    padding: 1vh;
+    margin-left: 1.5%;
+    color: whitesmoke;
+}
+    </style>
+</head>
+<body>
+  <div style="height :100vh;width:100%;display:flex;flex-direction: column;">
+  <div class="nav1">
+      <i id="QR" class="fas fa-qrcode"></i>
+      <h2>QR CODE SCANNER</h2>
+  </div>  
+  <div class="mid">
+  <div class="drag-area">
+    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+    <header>Drag & Drop to Upload File</header>
+    <span>OR</span>
+    <button>Browse File</button>
+    <input type="file" name="myfile" accept="image/*" capture hidden>
+  </div>
+  </div>
+  </div>
+</body>
+</html>
+
