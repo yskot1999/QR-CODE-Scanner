@@ -85,7 +85,7 @@ function isUrlValid(userInput) {
         return true;
 }
 
-function uploadFile(){  
+ async function uploadFile(){  
   let fileType = file.type; //getting selected file type
   let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //adding some valid image extensions in array
   if(validExtensions.includes(fileType)){ //if user selected file is an image file
@@ -109,9 +109,12 @@ function uploadFile(){
                     $("#status").empty().text(response);  
             }  
     });*/
+    const resizedImage= await resizeImage({
+        file:file,
+        maxSize:500
+    });
     const formData = new FormData()
-    formData.append('myFile', file)
-
+    formData.append('myFile',resizedImage );
     fetch('/upload', {
         method: 'POST',
         body: formData
@@ -144,3 +147,53 @@ function uploadFile(){
   }
 }
 }
+
+var resizeImage = function (settings) {
+    var file = settings.file;
+    var maxSize = settings.maxSize;
+    var reader = new FileReader();
+    var image = new Image();
+    var canvas = document.createElement('canvas');
+    var dataURItoBlob = function (dataURI) {
+        var bytes = dataURI.split(',')[0].indexOf('base64') >= 0 ?
+            atob(dataURI.split(',')[1]) :
+            unescape(dataURI.split(',')[1]);
+        var mime = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        var max = bytes.length;
+        var ia = new Uint8Array(max);
+        for (var i = 0; i < max; i++)
+            ia[i] = bytes.charCodeAt(i);
+        return new Blob([ia], { type: mime });
+    };
+    var resize = function () {
+        var width = image.width;
+        var height = image.height;
+        if (width > height) {
+            if (width > maxSize) {
+                height *= maxSize / width;
+                width = maxSize;
+            }
+        } else {
+            if (height > maxSize) {
+                width *= maxSize / height;
+                height = maxSize;
+            }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+        var dataUrl = canvas.toDataURL('image/jpeg');
+        return dataURItoBlob(dataUrl);
+    };
+    return new Promise(function (ok, no) {
+        if (!file.type.match(/image.*/)) {
+            no(new Error("Not an image"));
+            return;
+        }
+        reader.onload = function (readerEvent) {
+            image.onload = function () { return ok(resize()); };
+            image.src = readerEvent.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+};
