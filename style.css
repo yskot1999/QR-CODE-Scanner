@@ -61,27 +61,32 @@ body{
   border: 2px dashed #234fad;
 }
 .drag-area .icon{
-  font-size: 100px;
-  height: auto;
+  margin-top: 2vh;
+  font-size: 10vh;
   color: #274482;
 }
 .drag-area header{
-  font-size: 30px;
-  height: auto;
+  height: 6vh;
+  
+  font-size: 3vh;
+  margin-top: 1vh;
   font-weight: 500;
   color: black;
 }
 .drag-area span{
-    height: auto;
-  font-size: 25px;
+    height: 3vh;
+  margin-top: 2vh;
+  font-size: 3vh;
   font-weight: 500;
   color: black;
   margin: 10px 0 15px 0;
 }
 .drag-area button{
-    height: auto;
-  padding: 10px 25px;
-  font-size: 20px;
+    height: 6vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-top: 1vh;
+  font-size: 3vh;
   font-weight: 500;
   border: none;
   outline: none;
@@ -110,14 +115,15 @@ body{
     width: 100%;
     margin-top: 0;
 }
-h2{
+.nav1 h2{
+    font-size: 4vh;
     letter-spacing: normal;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
-    padding: 2vh;
+    padding: 1vh;
     color: honeydew;
 }
 
-#QR{
+.nav1 #QR{
     font-size:5vh;
     padding: 1vh;
     margin-left: 1.5%;
