@@ -128,7 +128,10 @@ function uploadFile(){
                 else{
                     alert("TEXT:\n" + data.output);
                 }
-            }  
+            }
+        else{
+            alert("Invalid QR code!!");
+        }  
         console.log(data)
     })
     .catch(error => {
