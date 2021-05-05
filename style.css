@@ -62,20 +62,24 @@ body{
 }
 .drag-area .icon{
   font-size: 100px;
+  height: auto;
   color: #274482;
 }
 .drag-area header{
   font-size: 30px;
+  height: auto;
   font-weight: 500;
   color: black;
 }
 .drag-area span{
+    height: auto;
   font-size: 25px;
   font-weight: 500;
   color: black;
   margin: 10px 0 15px 0;
 }
 .drag-area button{
+    height: auto;
   padding: 10px 25px;
   font-size: 20px;
   font-weight: 500;
