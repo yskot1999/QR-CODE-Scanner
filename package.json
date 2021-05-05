@@ -4,7 +4,7 @@
   "description": "IT enables you to upload an image of the QR code and it will display the generated result",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Yash Kothadiya",
   "license": "ISC",
