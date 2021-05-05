@@ -2,6 +2,7 @@ const express=require("express");
 const multer = require('multer');
 const scanner=require('./qrcode');
 const path=require('path');
+const fs=require('fs');
 const app = express();
 const PORT=process.env.PORT|| 4000;
 app.listen(PORT,() => console.log(`server running on port ${PORT}`));
@@ -35,6 +36,13 @@ app.post('/upload', function(req,res){
         try{
             console.log(pathnm,"finally");
             const out=await scanner(pathnm);
+            fs.unlink(__dirname + '/uploads/' + pathnm, function(err) {
+                if (err) {
+                  throw err
+                } else {
+                  console.log("Successfully deleted the file.")
+                }
+              })
             //res.end("hellop----");
             res.json({"success" : true,'output': out});
         }  

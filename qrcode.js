@@ -13,6 +13,7 @@ async function scanner(url)
         qrcode.callback = function(err, value) {
             if (err) {
                 console.error(err);
+                return;
             }
             console.log(value.result);
             res=value.result;
