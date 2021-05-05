@@ -6,38 +6,73 @@
   font-family: "Poppins", sans-serif;
 }
 body{
+  background: whitesmoke;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #5256ad;
+  flex-direction: column;
+}
+.inst{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 23vh;
+    width: 100%;
+    margin-top: 0vh;
+}
+.inst h3{
+    padding-top: 1.5%;
+    padding-left: 6.4%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    color: black;
+    font-size: 2.5vh;
+}
+
+.inst h2{
+    padding-top: 4%;
+    padding-left: 5.2%;
+    font-family: monospace;
+    font-style: normal;
+    color: black;
+    font-size: 3vh;
+}
+.mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 100%;
+    margin-top: 0vh;
 }
 .drag-area{
-  border: 2px dashed #fff;
-  height: 500px;
-  width: 700px;
-  border-radius: 5px;
+  background-color: #f7faff;
+  border: 2px dashed #234fad;
+  height: 40vh;
+  width: 60%;
+  border-radius: 20px;
+  box-shadow: 5px 10px 10px grey;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
 }
 .drag-area.active{
-  border: 2px solid #fff;
+  border: 2px dashed #234fad;
 }
 .drag-area .icon{
   font-size: 100px;
-  color: #fff;
+  color: #274482;
 }
 .drag-area header{
   font-size: 30px;
   font-weight: 500;
-  color: #fff;
+  color: black;
 }
 .drag-area span{
   font-size: 25px;
   font-weight: 500;
-  color: #fff;
+  color: black;
   margin: 10px 0 15px 0;
 }
 .drag-area button{
@@ -46,8 +81,8 @@ body{
   font-weight: 500;
   border: none;
   outline: none;
-  background: #fff;
-  color: #5256ad;
+  background: #274482;
+  color: white;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -56,4 +91,31 @@ body{
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
+}
+.nav1{
+    background-color: #274482;
+    height: 7vh;
+    width: 100%;
+    margin-top: 0vh;
+    display: flex;
+    flex-direction: row;
+}
+.nav2{
+    background-color: #1207e0;
+    height: 7vh;
+    width: 100%;
+    margin-top: 0;
+}
+h2{
+    letter-spacing: normal;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    padding: 2vh;
+    color: honeydew;
+}
+
+#QR{
+    font-size:5vh;
+    padding: 1vh;
+    margin-left: 1.5%;
+    color: whitesmoke;
 }

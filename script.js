@@ -74,7 +74,7 @@ dropArea.addEventListener("drop", (event)=>{
   event.preventDefault(); //preventing from default behaviour
   //getting user select file and [0] this means if user select multiple files then we'll select only the first one
   file = event.dataTransfer.files[0];
-  //showFile(); //calling function
+  uploadFile(); //calling function
 });
 
 function isUrlValid(userInput) {
