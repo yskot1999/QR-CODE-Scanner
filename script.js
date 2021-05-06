@@ -1,20 +1,18 @@
-//selecting all required elements
+
 window.onload= (event)=> {
     const dropArea = document.querySelector(".drag-area"),
 dragText = dropArea.querySelector("header"),
 button = dropArea.querySelector("button"),
 input = dropArea.querySelector("input");
-let file; //this is a global variable and we'll use it inside multiple functions
+let file; 
 
 button.onclick = ()=>{
-  input.click(); //if user click on the button then the input also clicked
+  input.click(); 
 }
 
 input.addEventListener("change", function(){
-  //getting user select file and [0] this means if user select multiple files then we'll select only the first one
   file = this.files[0];
   dropArea.classList.add("active");
-  //showFile(); //calling function
   uploadFile();
 });
 function uploadFile1() 
@@ -86,29 +84,9 @@ function isUrlValid(userInput) {
 }
 
  async function uploadFile(){  
-  let fileType = file.type; //getting selected file type
-  let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //adding some valid image extensions in array
-  if(validExtensions.includes(fileType)){ //if user selected file is an image file
-        /*$(this).ajaxSubmit({  
-        
-            error: function(xhr) {  
-                    status('Error: ' + xhr.status);  
-            },  
-
-            success: function(response) {  
-                    console.log(response);
-                    if(response.success===true)
-                    {
-                        if(isUrlValid(response.output)==true){
-                            window.open(response.output, '_blank');
-                        }
-                        else{
-                        alert(response.output);
-                        }
-                    }  
-                    $("#status").empty().text(response);  
-            }  
-    });*/
+  let fileType = file.type; 
+  let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; 
+  if(validExtensions.includes(fileType)){ 
     const resizedImage= await resizeImage({
         file:file,
         maxSize:500
