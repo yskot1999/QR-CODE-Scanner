@@ -8,6 +8,7 @@ const PORT=process.env.PORT|| 4000;
 app.listen(PORT,() => console.log(`server running on port ${PORT}`));
 app.use('/script.js', express.static(path.join(__dirname, 'script.js')));
 app.use('/style.css', express.static(path.join(__dirname, 'style.css')))
+app.use('/AU-static.jpg', express.static(path.join(__dirname, 'AU-static.jpg')))
 var pathnm='';
 var storage =   multer.diskStorage({  
     destination: function (req, file, callback) {  
